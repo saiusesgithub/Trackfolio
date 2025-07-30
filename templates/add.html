@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h2> Add A New Book </h2>
+
+<form action="/add" method="post">
+    <input autocomplete="off" autofocus name="title" placeholder="Title"
+        type="text" required>
+    <input autocomplete="off" name="author" placeholder="Author" type="text">
+    <input autocomplete="off" name="pages" placeholder="Pages" type="integer">
+
+    <select name="completion_status" required>
+        <option disabled selected value="">Status</option>
+        <option value="completed">completed</option>
+        <option value="reading">reading</option>
+        <option value="to-read">to-read</option>
+
+    </select>
+    <input autocomplete="off" name="date_start" placeholder="Started On"
+        type="text">
+    <input autocomplete="off" name="date_end" placeholder="Completed On"
+        type="text">
+    <input autocomplete="off" name="genre" placeholder="Genre" type="text">
+    <input autocomplete="off" name="rating" placeholder="Rating" type="integer">
+    <button type="submit">Add Book</button>
+
+</form>
+{% endblock %}

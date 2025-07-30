@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h2> Dashboard </h2>
+
+<form action="/add" method="get">
+    <button type="submit">Add A New Book</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th> </th>
+            <th> Title </th>
+            <th> Author </th>
+            <th> Pages </th>
+            <th> Status </th>
+            <th> Started On </th>
+            <th> Completed On </th>
+            <th> Genre </th>
+            <th> Your Rating </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td> {{book["id"]}} </td>
+            <td> {{book["title"]}} </td>
+            <td> {{book["author"]}}</td>
+            <td> {{book["pages"]}} </td>
+            <td> {{book["completion_status"]}} </td>
+            <td> {{book["date_start"]}} </td>
+            <td> {{book["date_end"]}} </td>
+            <td> {{book["genre"]}} </td>
+            <td> {{book["rating"]}} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
