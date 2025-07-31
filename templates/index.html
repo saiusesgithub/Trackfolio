@@ -1,20 +1,15 @@
 {% extends "layout.html" %}
 
 {% block main %}
-<h1> Trackfolio </h1>
-some slogan here
+<div class="container d-flex flex-column justify-content-center align-items-center flex-grow-1 text-center">
+    <h1 class="display-4">Trackfolio</h1>
+    <p class="lead">Your Reading, Organized</p> 
+    <p class="lead">"What gets measured, gets improved."  — Peter Drucker</p>
 
-some quote here
-
-<form action="/dashboard" method="get">
-    <button type="submit">Open Dashboard</button>
-</form>
-
-<form action="/stats" method="get">
-    <button type="submit">Stats</button>
-</form>
-
-<form action="/about" method="get">
-    <button type="submit">About</button>
-</form>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="/dashboard" type="button" class="btn btn-outline-secondary">Open Dashboard</a>
+        <a href="/stats" type="button" class="btn btn-outline-secondary">Stats</a>
+        <a href="/about" type="button" class="btn btn-outline-secondary">About</a>
+    </div>
+</div>
 {% endblock %}

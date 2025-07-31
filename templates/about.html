@@ -1,13 +1,53 @@
 {% extends "layout.html" %}
 
 {% block main %}
-    <h1>About</h1>
+<div class="container py-5">
+    <h1 class="text-center mb-4">About Trackfolio</h1>
 
-    made by sai srujan
-    second year student at vjit
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <p class="lead">
+                        Hey there! I'm <strong>Sai Srujan</strong>, a
+                        second-year IT student at <strong>VJIT</strong>.
+                    </p>
+                    <p>This app — <strong>Trackfolio</strong> — was built as my
+                        final project for the <strong>CS50x</strong> course
+                        offered by Harvard.</p>
+                    <p>
+                        I developed the entire application <strong>from scratch
+                            in just one day</strong>, including all backend
+                        logic, database setup, design, and features — with no AI
+                        assistance, code generators, or templates.
+                    </p>
+                    <p>
+                        Every single line was handwritten. I wanted to test my
+                        skills without AI assistance.
+                    </p>
 
-    made as final project for cs50x
-    only made in one day (start to end)
+                    <div class="mt-4">
+                        <h5 class="text-muted">Tech Stack</h5>
+                        <ul class="list-group list-group-flush small">
+                            <li
+                                class="list-group-item bg-transparent text-muted">
+                                <strong>Front End:</strong> HTML, CSS, Bootstrap
+                                5
+                            </li>
+                            <li
+                                class="list-group-item bg-transparent text-muted">
+                                <strong>Back End:</strong> Flask, Jinja2
+                            </li>
+                            <li
+                                class="list-group-item bg-transparent text-muted">
+                                <strong>Database:</strong> SQLite
+                            </li>
+                        </ul>
+                    </div>
 
-
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

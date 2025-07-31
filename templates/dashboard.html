@@ -1,12 +1,17 @@
 {% extends "layout.html" %}
 
 {% block main %}
-<h2> Dashboard </h2>
-
+<div class="mt-4 px-5">
+<h1 class="mb-3 text-center fw-bold display-5">Dashboard</h1>
+<div class="d-flex justify-content-center my-3">
 <form action="/add" method="get">
-    <button type="submit">Add A New Book</button>
+    <button type="submit" type="button" class="btn btn-outline-success mb-4">Add A New Book</button>
 </form>
-<table class="table table-striped-columns table-hover">
+</div>
+</div>
+<div class="container-fluid p-0">
+<div class="table-responsive">
+<table class="table table-striped-columns table-hover align-middle text-center">
     <thead class="table-dark">
         <tr>
             <th scope="col"> </th>
@@ -18,6 +23,8 @@
             <th scope="col"> Completed On </th>
             <th scope="col"> Genre </th>
             <th scope="col"> Your Rating </th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -34,12 +41,12 @@
             <td> {{book["rating"]}} </td>
             <td>
             <form action="/edit/{{book['id']}}" method="get">
-            <button type="submit">Edit</button>
+            <button type="submit" class="btn btn-outline-secondary btn-sm">Edit</button>
             </form>
             </td>
             <td>
             <form action="/delete/{{book['id']}}" method="get">
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
             </form>
             </td>
             
@@ -47,4 +54,6 @@
         {% endfor %}
     </tbody>
 </table>
+</div>
+</div>
 {% endblock %}

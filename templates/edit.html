@@ -1,29 +1,51 @@
 {% extends "layout.html" %}
 
 {% block main %}
-<h2> Edit New Book </h2>
+<div class="container mt-5">
+  <h2 class="text-center text-primary mb-4">Edit Book</h2>
 
-<form action="/edit/{{book['id']}}" method="post">
-    <input autocomplete="off" autofocus name="title" value="{{book['title']}}"
-        type="text" required>
-    <input autocomplete="off" name="author" value="{{book['author']}}" type="text">
-    <input autocomplete="off" name="pages" value="{{book['pages']}}" type="integer">
+  <form action="/edit/{{book['id']}}" method="post" class="mx-auto" style="max-width: 600px;">
+    <div class="mb-3">
+      <input class="form-control" name="title" value="{{book['title']}}" placeholder="Title" type="text" required>
+    </div>
 
-    <select name="completion_status" required>
+    <div class="mb-3">
+      <input class="form-control" name="author" value="{{book['author']}}" placeholder="Author" type="text">
+    </div>
+
+    <div class="mb-3">
+      <input class="form-control" name="pages" value="{{book['pages']}}" placeholder="Pages" type="number">
+    </div>
+
+    <div class="mb-3">
+      <select name="completion_status" class="form-select" required>
         <option disabled value="">Status</option>
-        <option value="completed" {% if book['completion_status'] == 'completed' %}selected{% endif %}>completed</option>
-        <option value="reading" {% if book['completion_status'] == 'reading' %}selected{% endif %}>reading</option>
-        <option value="to-read" {% if book['completion_status'] == 'to-read' %}selected{% endif %}>to-read</option>
+        <option value="completed" {% if book['completion_status'] == 'completed' %}selected{% endif %}>Completed</option>
+        <option value="reading" {% if book['completion_status'] == 'reading' %}selected{% endif %}>Reading</option>
+        <option value="to-read" {% if book['completion_status'] == 'to-read' %}selected{% endif %}>To-Read</option>
+      </select>
+    </div>
 
-    </select>
+    <div class="mb-3">
+      <input class="form-control" name="date_start" value="{{book['date_start']}}" placeholder="Started On" type="text">
+    </div>
 
-    <input autocomplete="off" name="date_start" value="{{book['date_start']}}"
-        type="text">
-    <input autocomplete="off" name="date_end" value="{{book['date_end']}}"
-        type="text">
-    <input autocomplete="off" name="genre" value="{{book['genre']}}" type="text">
-    <input autocomplete="off" name="rating" value="{{book['rating']}}" type="integer">
-    <button type="submit">Edit Book</button>
+    <div class="mb-3">
+      <input class="form-control" name="date_end" value="{{book['date_end']}}" placeholder="Completed On" type="text">
+    </div>
 
-</form>
+    <div class="mb-3">
+      <input class="form-control" name="genre" value="{{book['genre']}}" placeholder="Genre" type="text">
+    </div>
+
+    <div class="mb-3">
+      <input class="form-control" name="rating" value="{{book['rating']}}" placeholder="Rating" type="number">
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-outline-primary">Update Book</button>
+      <a href="/dashboard" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
 {% endblock %}
