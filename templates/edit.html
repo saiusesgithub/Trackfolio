@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h2> Edit New Book </h2>
+
+<form action="/edit/{{book['id']}}" method="post">
+    <input autocomplete="off" autofocus name="title" value="{{book['title']}}"
+        type="text" required>
+    <input autocomplete="off" name="author" value="{{book['author']}}" type="text">
+    <input autocomplete="off" name="pages" value="{{book['pages']}}" type="integer">
+
+    <select name="completion_status" required>
+        <option disabled value="">Status</option>
+        <option value="completed" {% if book['completion_status'] == 'completed' %}selected{% endif %}>completed</option>
+        <option value="reading" {% if book['completion_status'] == 'reading' %}selected{% endif %}>reading</option>
+        <option value="to-read" {% if book['completion_status'] == 'to-read' %}selected{% endif %}>to-read</option>
+
+    </select>
+
+    <input autocomplete="off" name="date_start" value="{{book['date_start']}}"
+        type="text">
+    <input autocomplete="off" name="date_end" value="{{book['date_end']}}"
+        type="text">
+    <input autocomplete="off" name="genre" value="{{book['genre']}}" type="text">
+    <input autocomplete="off" name="rating" value="{{book['rating']}}" type="integer">
+    <button type="submit">Edit Book</button>
+
+</form>
+{% endblock %}

@@ -6,24 +6,24 @@
 <form action="/add" method="get">
     <button type="submit">Add A New Book</button>
 </form>
-<table>
-    <thead>
+<table class="table table-striped-columns table-hover">
+    <thead class="table-dark">
         <tr>
-            <th> </th>
-            <th> Title </th>
-            <th> Author </th>
-            <th> Pages </th>
-            <th> Status </th>
-            <th> Started On </th>
-            <th> Completed On </th>
-            <th> Genre </th>
-            <th> Your Rating </th>
+            <th scope="col"> </th>
+            <th scope="col"> Title </th>
+            <th scope="col"> Author </th>
+            <th scope="col"> Pages </th>
+            <th scope="col"> Status </th>
+            <th scope="col"> Started On </th>
+            <th scope="col"> Completed On </th>
+            <th scope="col"> Genre </th>
+            <th scope="col"> Your Rating </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
         {% for book in books %}
         <tr>
-            <td> {{book["id"]}} </td>
+            <td> {{loop.index}} </td>
             <td> {{book["title"]}} </td>
             <td> {{book["author"]}}</td>
             <td> {{book["pages"]}} </td>
@@ -32,6 +32,17 @@
             <td> {{book["date_end"]}} </td>
             <td> {{book["genre"]}} </td>
             <td> {{book["rating"]}} </td>
+            <td>
+            <form action="/edit/{{book['id']}}" method="get">
+            <button type="submit">Edit</button>
+            </form>
+            </td>
+            <td>
+            <form action="/delete/{{book['id']}}" method="get">
+            <button type="submit">Delete</button>
+            </form>
+            </td>
+            
         </tr>
         {% endfor %}
     </tbody>

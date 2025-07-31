@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h2> Delete A Book </h2>
+
+Are you sure you want to delete the following book?
+cant undo this action 
+<h2>{{book['title']}}</h2>
+by : {{book['author']}}
+pages: {{book['pages']}}
+status : {{book['completion_status']}}
+rating : {{book['rating']}}
+
+<form method="post" action="/delete/{{book['id']}}">
+<button type="submit">Delete Book</button>
+</form>
+{% endblock %}
