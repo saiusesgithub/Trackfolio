@@ -41,4 +41,28 @@ def delete(id):
     else:
         book = db.execute("SELECT * FROM books WHERE id= ?",id)[0]
         return render_template("delete.html",book = book)
+    
 
+@app.route('/stats',methods=['GET','POST'])
+def stats():
+    completed_books = 0
+    to_read_books = 0
+    read_books = 0
+    total_pages_read = 0
+    status = db.execute("SELECT completion_status as s,pages as p FROM books")
+    print(status)
+    for dict in status:
+        if dict['s'] == 'completed':
+            completed_books+=1
+            total_pages_read+=dict['p']
+        elif dict['s'] == 'to-read':
+            to_read_books+=1
+        elif dict['s'] == 'read':
+            read_books+=1
+            
+    return render_template("stats.html",completed_books=completed_books,to_read_books=to_read_books,read_books=read_books,total_pages_read=total_pages_read)
+
+
+@app.route("/about",methods=["GET","POST"])
+def about():
+    return render_template("about.html")
